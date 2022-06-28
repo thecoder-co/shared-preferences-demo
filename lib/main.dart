@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences_example/shared_preferences.dart';
 
 void main() async {
+  // Initialize the shared preferences
   await LocalStorage.init();
   runApp(const MyApp());
 }
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Shared Preferences Demo'),
     );
   }
 }
@@ -31,6 +32,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // get count from shared preferences and default to 0 if not set already
   int _counter = LocalStorage.getCount() ?? 0;
 
   void _incrementCounter() {
